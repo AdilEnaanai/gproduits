@@ -32,6 +32,13 @@ app.post("/produits", (req, res) => {
   res.status(201).json(nouveauProduit);
 });
 
+app.delete('/produits/:id', (req, res) => {
+    const id = parseInt(req.params.id); 
+    produits = produits.filter(p => p.id !== id);
+    
+    res.json({ message: `Produit avec l'id ${id} est supprimé.` });
+});
+
 app.listen(port, () => {
   console.log(`Produits API listening at http://localhost:${port}`);
 });
