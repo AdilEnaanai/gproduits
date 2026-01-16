@@ -33,7 +33,7 @@ export default function FormProduit(){
                     </h4>
                 </div>
                 <div className="card-body">
-                    <form>
+                    <form onSubmit={addProduit}>
                         <div className="mb-3">
                             <label htmlFor="id" className="form-label fw-bold">
                                 <i className="bi bi-hash me-1"></i>
@@ -44,6 +44,8 @@ export default function FormProduit(){
                                 name="id" 
                                 id="id"
                                 className="form-control" 
+                                value={id}
+                                onChange={(e) => setId(e.target.value)}
                                 placeholder="Entrez l'identifiant"
                                 required
                             />
@@ -59,6 +61,8 @@ export default function FormProduit(){
                                 name="nom" 
                                 id="nom"
                                 className="form-control" 
+                                value={nom}
+                                onChange={(e) => setNom(e.target.value)}
                                 placeholder="Entrez le nom du produit"
                                 required
                             />
@@ -75,6 +79,8 @@ export default function FormProduit(){
                                     name="prix" 
                                     id="prix"
                                     className="form-control" 
+                                    value={prix}
+                                    onChange={(e) => setPrix(parseFloat(e.target.value))}
                                     placeholder="0.00"
                                     step="0.01"
                                     required
@@ -86,7 +92,7 @@ export default function FormProduit(){
                         <div className="d-grid gap-2">
                             <button 
                                 type="submit" 
-                                onClick={addProduit}
+                                
                                 className="btn btn-success btn-lg"
                             >
                                 <i className="bi bi-check-circle me-2"></i>
