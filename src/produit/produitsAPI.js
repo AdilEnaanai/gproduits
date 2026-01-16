@@ -21,5 +21,5 @@ app.post('/produits', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Produits API listening at http://localhost:${port}`);
+    console.log(`Produits Server listening at http://localhost:${port}`);
 });
