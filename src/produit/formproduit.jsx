@@ -1,14 +1,17 @@
 import axios from "axios"
 import 'bootstrap/dist/css/bootstrap.min.css'
 
+import { useState } from "react"
 export default function FormProduit(){
-
+    const [id, setId] = useState('');
+    const [nom, setNom] = useState('');
+    const [prix, setPrix] = useState(0);
     const addProduit = (e) => {
         e.preventDefault()
         const produit = {
-            id: e.target.parentElement.id.value,
-            nom: e.target.parentElement.nom.value,
-            prix: parseFloat(e.target.parentElement.prix.value)
+            id: id,
+            nom: nom,
+            prix: prix
         }
         
         axios.post('http://localhost:3000/produits', produit)
